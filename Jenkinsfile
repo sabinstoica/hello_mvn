@@ -1,21 +1,31 @@
-pipeline{
+pipeline {
     agent any
-
-    tools {
-         maven 'maven'
-         jdk 'java'
-    }
-
-    stages{
-        stage('checkout'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/sreenivas449/java-hello-world-with-maven.git']]])
-            }
-        }
-        stage('build'){
-            steps{
-               bat 'mvn package'
-            }
-        }
-    }
+        stages {
+            stage ('Build') {
+                steps {
+                    // Get the repo from GitHub
+                    git 'https://github.com/sabinstoica/hello_mvn.git'
+                    
+                    // Build the Maven-based Java applications binary
+                    sh "/usr/share/maven/bin/mvn package"
+                    }
+                            }
+            stage ('Deploy') {
+                steps {
+                    // Get the repo from GitHub
+                    git 'https://github.com/sabinstoica/hello_mvn.git'
+                    
+                    // Copy the jarfile from the previouse stage
+                    sh "cp $jarfile ."
+                    
+                    // Do the docker image and container cleanup before starting the deployment
+                    sh "./cleanup.sh"
+                    
+                    // Deploy the jar file into a docker image
+                    sh "docker build -t $image ."
+                    sh "docker run --name $container $image"
+                    }
+                            }
+                            
+        }    
 }
