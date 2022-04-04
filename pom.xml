@@ -22,7 +22,21 @@
            </dependency>
        </dependencies>
        <!-- end::joda[] -->
-       
+    
+    
+   <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>vagrant-ubuntu-trusty-64-releases</name>
+        <url>http://192.168.0.217:8081/artifactory/maven_repo</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>vagrant-ubuntu-trusty-64-snapshots</name>
+        <url>http://192.168.0.217:8081/artifactory/maven_repo</url>
+    </snapshotRepository>
+</distributionManagement>
+    
     <build>
         <plugins>
             <plugin>
