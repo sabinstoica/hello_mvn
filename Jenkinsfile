@@ -1,5 +1,8 @@
 pipeline {
     agent {label 'monitoring'}
+     tools {
+          maven "Maven3"
+        }
         stages {
             stage ('Build') {
                 steps {
