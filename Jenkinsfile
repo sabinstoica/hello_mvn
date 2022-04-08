@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'monitoring'}
+    agent {label 'builder'}
      tools {
           maven "Maven3"
         }
