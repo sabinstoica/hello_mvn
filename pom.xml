@@ -20,14 +20,7 @@
                <version>2.2</version>
            </dependency>
        </dependencies>
-    
-    <publisher>
-                                <contextUrl>http://192.168.0.217:8082/artifactory/maven_repo/</contextUrl>
-                                <username>${username}</username>
-                                <password>${password}</password>
-    </publisher>
- 
-    
+
     <build>
         <plugins>
             <plugin>
