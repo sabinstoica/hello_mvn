@@ -7,7 +7,6 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- tag::joda[] -->
      <properties>
            <java.version>1.8</java.version>
            <maven.compiler.source>1.6</maven.compiler.source>
@@ -21,7 +20,6 @@
                <version>2.2</version>
            </dependency>
        </dependencies>
-       <!-- end::joda[] -->
     
     <publisher>
                                 <contextUrl>http://192.168.0.217:8082/artifactory/maven_repo/</contextUrl>
